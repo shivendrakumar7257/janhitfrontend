@@ -1,0 +1,22 @@
+- [x] Copy configuration files from `janhit_world_school_gn` to `janhitcollege_law` (package.json, tsconfig.json, vite.config.ts, components.json, eslint.config.js, .prettierrc, .prettierignore, .gitignore)
+- [x] Create `src` directory structure inside `janhitcollege_law`
+- [x] Move existing assets (PDFs, logo, hero images) to `src/assets`
+- [x] Write `src/styles.css` with the matching font styles and color palette
+- [x] Write `src/main.tsx` entry file
+- [x] Create `index.html` file in `janhitcollege_law` root
+- [x] Write `src/App.tsx` coordinating sections
+- [x] Create site components:
+  - [x] `Navbar.tsx` (Logo, menu, and Apply link)
+  - [x] `Hero.tsx` (Hero background images, overlay, title, primary CTA)
+  - [x] `About.tsx` (Vision, mission, and message)
+  - [x] `Courses.tsx` (B.A.LL.B 5 year and LL.B 3 year, requirements, dress code, documents, syllabus/structure downloads)
+  - [x] `Infrastructure.tsx` (Moot court, library, campus)
+  - [x] `Admissions.tsx` (Guidelines, academic calendar)
+  - [x] `Downloads.tsx` (General document downloads)
+  - [x] `NewsNotice.tsx` & `Events.tsx` (News bulletins, activities) (Implemented inside `NewsEvents.tsx`)
+  - [x] `Committees.tsx` & `Disclosures.tsx` (Committees, public disclosures)
+  - [x] `ContactForm.tsx` (Contact details, maps, and Apply Now interactive form)
+  - [x] `Footer.tsx` (College information and credits)
+- [/] Install dependencies with package manager
+- [ ] Run `npm run build` to verify correct builds and check for lint errors
+- [ ] Complete validation walkthrough and summarize findings
