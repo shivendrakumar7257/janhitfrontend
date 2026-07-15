@@ -19,9 +19,18 @@ import { Route as CareerRouteImport } from './routes/career'
 import { Route as AdmissionsRouteImport } from './routes/admissions'
 import { Route as AchievementsRouteImport } from './routes/achievements'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AtadminRouteImport } from './routes/@admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as InstitutionsIndexRouteImport } from './routes/institutions.index'
+import { Route as AtadminIndexRouteImport } from './routes/@admin.index'
 import { Route as InstitutionsSlugRouteImport } from './routes/institutions.$slug'
+import { Route as AtadminProfileRouteImport } from './routes/@admin.profile'
+import { Route as AtadminForgotPasswordRouteImport } from './routes/@admin.forgot-password'
+import { Route as AtadminDashboardRouteImport } from './routes/@admin.dashboard'
+import { Route as AtadminCampusesIndexRouteImport } from './routes/@admin.campuses.index'
+import { Route as AtadminCampusesCreateRouteImport } from './routes/@admin.campuses.create'
+import { Route as AtadminCampusesIdRouteImport } from './routes/@admin.campuses.$id'
+import { Route as AtadminCampusesIdEditRouteImport } from './routes/@admin.campuses.$id.edit'
 
 const NewsRoute = NewsRouteImport.update({
   id: '/news',
@@ -73,6 +82,11 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AtadminRoute = AtadminRouteImport.update({
+  id: '/@admin',
+  path: '/@admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -83,14 +97,55 @@ const InstitutionsIndexRoute = InstitutionsIndexRouteImport.update({
   path: '/institutions/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AtadminIndexRoute = AtadminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AtadminRoute,
+} as any)
 const InstitutionsSlugRoute = InstitutionsSlugRouteImport.update({
   id: '/institutions/$slug',
   path: '/institutions/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AtadminProfileRoute = AtadminProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminForgotPasswordRoute = AtadminForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminDashboardRoute = AtadminDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminCampusesIndexRoute = AtadminCampusesIndexRouteImport.update({
+  id: '/campuses/',
+  path: '/campuses/',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminCampusesCreateRoute = AtadminCampusesCreateRouteImport.update({
+  id: '/campuses/create',
+  path: '/campuses/create',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminCampusesIdRoute = AtadminCampusesIdRouteImport.update({
+  id: '/campuses/$id',
+  path: '/campuses/$id',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminCampusesIdEditRoute = AtadminCampusesIdEditRouteImport.update({
+  id: '/edit',
+  path: '/edit',
+  getParentRoute: () => AtadminCampusesIdRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/@admin': typeof AtadminRouteWithChildren
   '/about': typeof AboutRoute
   '/achievements': typeof AchievementsRoute
   '/admissions': typeof AdmissionsRoute
@@ -101,8 +156,16 @@ export interface FileRoutesByFullPath {
   '/gallery': typeof GalleryRoute
   '/naac': typeof NaacRoute
   '/news': typeof NewsRoute
+  '/@admin/dashboard': typeof AtadminDashboardRoute
+  '/@admin/forgot-password': typeof AtadminForgotPasswordRoute
+  '/@admin/profile': typeof AtadminProfileRoute
   '/institutions/$slug': typeof InstitutionsSlugRoute
+  '/@admin/': typeof AtadminIndexRoute
   '/institutions/': typeof InstitutionsIndexRoute
+  '/@admin/campuses/$id': typeof AtadminCampusesIdRouteWithChildren
+  '/@admin/campuses/create': typeof AtadminCampusesCreateRoute
+  '/@admin/campuses/': typeof AtadminCampusesIndexRoute
+  '/@admin/campuses/$id/edit': typeof AtadminCampusesIdEditRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -116,12 +179,21 @@ export interface FileRoutesByTo {
   '/gallery': typeof GalleryRoute
   '/naac': typeof NaacRoute
   '/news': typeof NewsRoute
+  '/@admin/dashboard': typeof AtadminDashboardRoute
+  '/@admin/forgot-password': typeof AtadminForgotPasswordRoute
+  '/@admin/profile': typeof AtadminProfileRoute
   '/institutions/$slug': typeof InstitutionsSlugRoute
+  '/@admin': typeof AtadminIndexRoute
   '/institutions': typeof InstitutionsIndexRoute
+  '/@admin/campuses/$id': typeof AtadminCampusesIdRouteWithChildren
+  '/@admin/campuses/create': typeof AtadminCampusesCreateRoute
+  '/@admin/campuses': typeof AtadminCampusesIndexRoute
+  '/@admin/campuses/$id/edit': typeof AtadminCampusesIdEditRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/@admin': typeof AtadminRouteWithChildren
   '/about': typeof AboutRoute
   '/achievements': typeof AchievementsRoute
   '/admissions': typeof AdmissionsRoute
@@ -132,13 +204,22 @@ export interface FileRoutesById {
   '/gallery': typeof GalleryRoute
   '/naac': typeof NaacRoute
   '/news': typeof NewsRoute
+  '/@admin/dashboard': typeof AtadminDashboardRoute
+  '/@admin/forgot-password': typeof AtadminForgotPasswordRoute
+  '/@admin/profile': typeof AtadminProfileRoute
   '/institutions/$slug': typeof InstitutionsSlugRoute
+  '/@admin/': typeof AtadminIndexRoute
   '/institutions/': typeof InstitutionsIndexRoute
+  '/@admin/campuses/$id': typeof AtadminCampusesIdRouteWithChildren
+  '/@admin/campuses/create': typeof AtadminCampusesCreateRoute
+  '/@admin/campuses/': typeof AtadminCampusesIndexRoute
+  '/@admin/campuses/$id/edit': typeof AtadminCampusesIdEditRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/@admin'
     | '/about'
     | '/achievements'
     | '/admissions'
@@ -149,8 +230,16 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/naac'
     | '/news'
+    | '/@admin/dashboard'
+    | '/@admin/forgot-password'
+    | '/@admin/profile'
     | '/institutions/$slug'
+    | '/@admin/'
     | '/institutions/'
+    | '/@admin/campuses/$id'
+    | '/@admin/campuses/create'
+    | '/@admin/campuses/'
+    | '/@admin/campuses/$id/edit'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -164,11 +253,20 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/naac'
     | '/news'
+    | '/@admin/dashboard'
+    | '/@admin/forgot-password'
+    | '/@admin/profile'
     | '/institutions/$slug'
+    | '/@admin'
     | '/institutions'
+    | '/@admin/campuses/$id'
+    | '/@admin/campuses/create'
+    | '/@admin/campuses'
+    | '/@admin/campuses/$id/edit'
   id:
     | '__root__'
     | '/'
+    | '/@admin'
     | '/about'
     | '/achievements'
     | '/admissions'
@@ -179,12 +277,21 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/naac'
     | '/news'
+    | '/@admin/dashboard'
+    | '/@admin/forgot-password'
+    | '/@admin/profile'
     | '/institutions/$slug'
+    | '/@admin/'
     | '/institutions/'
+    | '/@admin/campuses/$id'
+    | '/@admin/campuses/create'
+    | '/@admin/campuses/'
+    | '/@admin/campuses/$id/edit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AtadminRoute: typeof AtadminRouteWithChildren
   AboutRoute: typeof AboutRoute
   AchievementsRoute: typeof AchievementsRoute
   AdmissionsRoute: typeof AdmissionsRoute
@@ -271,6 +378,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/@admin': {
+      id: '/@admin'
+      path: '/@admin'
+      fullPath: '/@admin'
+      preLoaderRoute: typeof AtadminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -285,6 +399,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InstitutionsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/@admin/': {
+      id: '/@admin/'
+      path: '/'
+      fullPath: '/@admin/'
+      preLoaderRoute: typeof AtadminIndexRouteImport
+      parentRoute: typeof AtadminRoute
+    }
     '/institutions/$slug': {
       id: '/institutions/$slug'
       path: '/institutions/$slug'
@@ -292,11 +413,95 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InstitutionsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/@admin/profile': {
+      id: '/@admin/profile'
+      path: '/profile'
+      fullPath: '/@admin/profile'
+      preLoaderRoute: typeof AtadminProfileRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/forgot-password': {
+      id: '/@admin/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/@admin/forgot-password'
+      preLoaderRoute: typeof AtadminForgotPasswordRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/dashboard': {
+      id: '/@admin/dashboard'
+      path: '/dashboard'
+      fullPath: '/@admin/dashboard'
+      preLoaderRoute: typeof AtadminDashboardRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/campuses/': {
+      id: '/@admin/campuses/'
+      path: '/campuses'
+      fullPath: '/@admin/campuses/'
+      preLoaderRoute: typeof AtadminCampusesIndexRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/campuses/create': {
+      id: '/@admin/campuses/create'
+      path: '/campuses/create'
+      fullPath: '/@admin/campuses/create'
+      preLoaderRoute: typeof AtadminCampusesCreateRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/campuses/$id': {
+      id: '/@admin/campuses/$id'
+      path: '/campuses/$id'
+      fullPath: '/@admin/campuses/$id'
+      preLoaderRoute: typeof AtadminCampusesIdRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/campuses/$id/edit': {
+      id: '/@admin/campuses/$id/edit'
+      path: '/edit'
+      fullPath: '/@admin/campuses/$id/edit'
+      preLoaderRoute: typeof AtadminCampusesIdEditRouteImport
+      parentRoute: typeof AtadminCampusesIdRoute
+    }
   }
 }
 
+interface AtadminCampusesIdRouteChildren {
+  AtadminCampusesIdEditRoute: typeof AtadminCampusesIdEditRoute
+}
+
+const AtadminCampusesIdRouteChildren: AtadminCampusesIdRouteChildren = {
+  AtadminCampusesIdEditRoute: AtadminCampusesIdEditRoute,
+}
+
+const AtadminCampusesIdRouteWithChildren =
+  AtadminCampusesIdRoute._addFileChildren(AtadminCampusesIdRouteChildren)
+
+interface AtadminRouteChildren {
+  AtadminDashboardRoute: typeof AtadminDashboardRoute
+  AtadminForgotPasswordRoute: typeof AtadminForgotPasswordRoute
+  AtadminProfileRoute: typeof AtadminProfileRoute
+  AtadminIndexRoute: typeof AtadminIndexRoute
+  AtadminCampusesIdRoute: typeof AtadminCampusesIdRouteWithChildren
+  AtadminCampusesCreateRoute: typeof AtadminCampusesCreateRoute
+  AtadminCampusesIndexRoute: typeof AtadminCampusesIndexRoute
+}
+
+const AtadminRouteChildren: AtadminRouteChildren = {
+  AtadminDashboardRoute: AtadminDashboardRoute,
+  AtadminForgotPasswordRoute: AtadminForgotPasswordRoute,
+  AtadminProfileRoute: AtadminProfileRoute,
+  AtadminIndexRoute: AtadminIndexRoute,
+  AtadminCampusesIdRoute: AtadminCampusesIdRouteWithChildren,
+  AtadminCampusesCreateRoute: AtadminCampusesCreateRoute,
+  AtadminCampusesIndexRoute: AtadminCampusesIndexRoute,
+}
+
+const AtadminRouteWithChildren =
+  AtadminRoute._addFileChildren(AtadminRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AtadminRoute: AtadminRouteWithChildren,
   AboutRoute: AboutRoute,
   AchievementsRoute: AchievementsRoute,
   AdmissionsRoute: AdmissionsRoute,
