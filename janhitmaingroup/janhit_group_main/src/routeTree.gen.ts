@@ -27,9 +27,13 @@ import { Route as InstitutionsSlugRouteImport } from './routes/institutions.$slu
 import { Route as AtadminProfileRouteImport } from './routes/@admin.profile'
 import { Route as AtadminForgotPasswordRouteImport } from './routes/@admin.forgot-password'
 import { Route as AtadminDashboardRouteImport } from './routes/@admin.dashboard'
+import { Route as AtadminNewsIndexRouteImport } from './routes/@admin.news.index'
 import { Route as AtadminCampusesIndexRouteImport } from './routes/@admin.campuses.index'
+import { Route as AtadminNewsCreateRouteImport } from './routes/@admin.news.create'
+import { Route as AtadminNewsIdRouteImport } from './routes/@admin.news.$id'
 import { Route as AtadminCampusesCreateRouteImport } from './routes/@admin.campuses.create'
 import { Route as AtadminCampusesIdRouteImport } from './routes/@admin.campuses.$id'
+import { Route as AtadminNewsIdEditRouteImport } from './routes/@admin.news.$id.edit'
 import { Route as AtadminCampusesIdEditRouteImport } from './routes/@admin.campuses.$id.edit'
 
 const NewsRoute = NewsRouteImport.update({
@@ -122,9 +126,24 @@ const AtadminDashboardRoute = AtadminDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => AtadminRoute,
 } as any)
+const AtadminNewsIndexRoute = AtadminNewsIndexRouteImport.update({
+  id: '/news/',
+  path: '/news/',
+  getParentRoute: () => AtadminRoute,
+} as any)
 const AtadminCampusesIndexRoute = AtadminCampusesIndexRouteImport.update({
   id: '/campuses/',
   path: '/campuses/',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminNewsCreateRoute = AtadminNewsCreateRouteImport.update({
+  id: '/news/create',
+  path: '/news/create',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminNewsIdRoute = AtadminNewsIdRouteImport.update({
+  id: '/news/$id',
+  path: '/news/$id',
   getParentRoute: () => AtadminRoute,
 } as any)
 const AtadminCampusesCreateRoute = AtadminCampusesCreateRouteImport.update({
@@ -136,6 +155,11 @@ const AtadminCampusesIdRoute = AtadminCampusesIdRouteImport.update({
   id: '/campuses/$id',
   path: '/campuses/$id',
   getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminNewsIdEditRoute = AtadminNewsIdEditRouteImport.update({
+  id: '/edit',
+  path: '/edit',
+  getParentRoute: () => AtadminNewsIdRoute,
 } as any)
 const AtadminCampusesIdEditRoute = AtadminCampusesIdEditRouteImport.update({
   id: '/edit',
@@ -164,8 +188,12 @@ export interface FileRoutesByFullPath {
   '/institutions/': typeof InstitutionsIndexRoute
   '/@admin/campuses/$id': typeof AtadminCampusesIdRouteWithChildren
   '/@admin/campuses/create': typeof AtadminCampusesCreateRoute
+  '/@admin/news/$id': typeof AtadminNewsIdRouteWithChildren
+  '/@admin/news/create': typeof AtadminNewsCreateRoute
   '/@admin/campuses/': typeof AtadminCampusesIndexRoute
+  '/@admin/news/': typeof AtadminNewsIndexRoute
   '/@admin/campuses/$id/edit': typeof AtadminCampusesIdEditRoute
+  '/@admin/news/$id/edit': typeof AtadminNewsIdEditRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -187,8 +215,12 @@ export interface FileRoutesByTo {
   '/institutions': typeof InstitutionsIndexRoute
   '/@admin/campuses/$id': typeof AtadminCampusesIdRouteWithChildren
   '/@admin/campuses/create': typeof AtadminCampusesCreateRoute
+  '/@admin/news/$id': typeof AtadminNewsIdRouteWithChildren
+  '/@admin/news/create': typeof AtadminNewsCreateRoute
   '/@admin/campuses': typeof AtadminCampusesIndexRoute
+  '/@admin/news': typeof AtadminNewsIndexRoute
   '/@admin/campuses/$id/edit': typeof AtadminCampusesIdEditRoute
+  '/@admin/news/$id/edit': typeof AtadminNewsIdEditRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -212,8 +244,12 @@ export interface FileRoutesById {
   '/institutions/': typeof InstitutionsIndexRoute
   '/@admin/campuses/$id': typeof AtadminCampusesIdRouteWithChildren
   '/@admin/campuses/create': typeof AtadminCampusesCreateRoute
+  '/@admin/news/$id': typeof AtadminNewsIdRouteWithChildren
+  '/@admin/news/create': typeof AtadminNewsCreateRoute
   '/@admin/campuses/': typeof AtadminCampusesIndexRoute
+  '/@admin/news/': typeof AtadminNewsIndexRoute
   '/@admin/campuses/$id/edit': typeof AtadminCampusesIdEditRoute
+  '/@admin/news/$id/edit': typeof AtadminNewsIdEditRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -238,8 +274,12 @@ export interface FileRouteTypes {
     | '/institutions/'
     | '/@admin/campuses/$id'
     | '/@admin/campuses/create'
+    | '/@admin/news/$id'
+    | '/@admin/news/create'
     | '/@admin/campuses/'
+    | '/@admin/news/'
     | '/@admin/campuses/$id/edit'
+    | '/@admin/news/$id/edit'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -261,8 +301,12 @@ export interface FileRouteTypes {
     | '/institutions'
     | '/@admin/campuses/$id'
     | '/@admin/campuses/create'
+    | '/@admin/news/$id'
+    | '/@admin/news/create'
     | '/@admin/campuses'
+    | '/@admin/news'
     | '/@admin/campuses/$id/edit'
+    | '/@admin/news/$id/edit'
   id:
     | '__root__'
     | '/'
@@ -285,8 +329,12 @@ export interface FileRouteTypes {
     | '/institutions/'
     | '/@admin/campuses/$id'
     | '/@admin/campuses/create'
+    | '/@admin/news/$id'
+    | '/@admin/news/create'
     | '/@admin/campuses/'
+    | '/@admin/news/'
     | '/@admin/campuses/$id/edit'
+    | '/@admin/news/$id/edit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -434,11 +482,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AtadminDashboardRouteImport
       parentRoute: typeof AtadminRoute
     }
+    '/@admin/news/': {
+      id: '/@admin/news/'
+      path: '/news'
+      fullPath: '/@admin/news/'
+      preLoaderRoute: typeof AtadminNewsIndexRouteImport
+      parentRoute: typeof AtadminRoute
+    }
     '/@admin/campuses/': {
       id: '/@admin/campuses/'
       path: '/campuses'
       fullPath: '/@admin/campuses/'
       preLoaderRoute: typeof AtadminCampusesIndexRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/news/create': {
+      id: '/@admin/news/create'
+      path: '/news/create'
+      fullPath: '/@admin/news/create'
+      preLoaderRoute: typeof AtadminNewsCreateRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/news/$id': {
+      id: '/@admin/news/$id'
+      path: '/news/$id'
+      fullPath: '/@admin/news/$id'
+      preLoaderRoute: typeof AtadminNewsIdRouteImport
       parentRoute: typeof AtadminRoute
     }
     '/@admin/campuses/create': {
@@ -454,6 +523,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/@admin/campuses/$id'
       preLoaderRoute: typeof AtadminCampusesIdRouteImport
       parentRoute: typeof AtadminRoute
+    }
+    '/@admin/news/$id/edit': {
+      id: '/@admin/news/$id/edit'
+      path: '/edit'
+      fullPath: '/@admin/news/$id/edit'
+      preLoaderRoute: typeof AtadminNewsIdEditRouteImport
+      parentRoute: typeof AtadminNewsIdRoute
     }
     '/@admin/campuses/$id/edit': {
       id: '/@admin/campuses/$id/edit'
@@ -476,6 +552,18 @@ const AtadminCampusesIdRouteChildren: AtadminCampusesIdRouteChildren = {
 const AtadminCampusesIdRouteWithChildren =
   AtadminCampusesIdRoute._addFileChildren(AtadminCampusesIdRouteChildren)
 
+interface AtadminNewsIdRouteChildren {
+  AtadminNewsIdEditRoute: typeof AtadminNewsIdEditRoute
+}
+
+const AtadminNewsIdRouteChildren: AtadminNewsIdRouteChildren = {
+  AtadminNewsIdEditRoute: AtadminNewsIdEditRoute,
+}
+
+const AtadminNewsIdRouteWithChildren = AtadminNewsIdRoute._addFileChildren(
+  AtadminNewsIdRouteChildren,
+)
+
 interface AtadminRouteChildren {
   AtadminDashboardRoute: typeof AtadminDashboardRoute
   AtadminForgotPasswordRoute: typeof AtadminForgotPasswordRoute
@@ -483,7 +571,10 @@ interface AtadminRouteChildren {
   AtadminIndexRoute: typeof AtadminIndexRoute
   AtadminCampusesIdRoute: typeof AtadminCampusesIdRouteWithChildren
   AtadminCampusesCreateRoute: typeof AtadminCampusesCreateRoute
+  AtadminNewsIdRoute: typeof AtadminNewsIdRouteWithChildren
+  AtadminNewsCreateRoute: typeof AtadminNewsCreateRoute
   AtadminCampusesIndexRoute: typeof AtadminCampusesIndexRoute
+  AtadminNewsIndexRoute: typeof AtadminNewsIndexRoute
 }
 
 const AtadminRouteChildren: AtadminRouteChildren = {
@@ -493,7 +584,10 @@ const AtadminRouteChildren: AtadminRouteChildren = {
   AtadminIndexRoute: AtadminIndexRoute,
   AtadminCampusesIdRoute: AtadminCampusesIdRouteWithChildren,
   AtadminCampusesCreateRoute: AtadminCampusesCreateRoute,
+  AtadminNewsIdRoute: AtadminNewsIdRouteWithChildren,
+  AtadminNewsCreateRoute: AtadminNewsCreateRoute,
   AtadminCampusesIndexRoute: AtadminCampusesIndexRoute,
+  AtadminNewsIndexRoute: AtadminNewsIndexRoute,
 }
 
 const AtadminRouteWithChildren =

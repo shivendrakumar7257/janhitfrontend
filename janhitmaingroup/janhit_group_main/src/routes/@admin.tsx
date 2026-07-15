@@ -9,7 +9,8 @@ import {
   Building,
   LayoutDashboard,
   Menu,
-  X
+  X,
+  Newspaper
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -79,6 +80,12 @@ function AdminLayoutContent() {
       icon: Building,
       to: "/@admin/campuses" as const,
       active: location.pathname.startsWith("/@admin/campuses"),
+    },
+    {
+      label: "News & Notices",
+      icon: Newspaper,
+      to: "/@admin/news" as const,
+      active: location.pathname.startsWith("/@admin/news"),
     },
     {
       label: "My Profile",
