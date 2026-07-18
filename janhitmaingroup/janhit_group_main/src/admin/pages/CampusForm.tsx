@@ -178,7 +178,7 @@ export const CampusForm: React.FC<CampusFormProps> = ({
     const hasErrors = Object.values(newErrors).some((err) => err !== "");
     if (hasErrors) {
       // Find first error and scroll to it
-      const firstErrorField = Object.keys(newErrors).find((key) => newErrors[key] !== "");
+      const firstErrorField = Object.keys(newErrors).find((key) => newErrors[key as keyof typeof newErrors] !== "");
       if (firstErrorField) {
         const element = document.getElementById(firstErrorField);
         if (element) {
@@ -198,6 +198,7 @@ export const CampusForm: React.FC<CampusFormProps> = ({
       websiteUrl,
       email: email.trim(),
       phone: phone.trim(),
+      address: address.trim(),
       city: city.trim(),
       state: stateVal.trim(),
       pincode: pincode.trim(),

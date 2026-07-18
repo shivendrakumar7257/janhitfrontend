@@ -28,12 +28,31 @@ import { Route as AtadminProfileRouteImport } from './routes/@admin.profile'
 import { Route as AtadminForgotPasswordRouteImport } from './routes/@admin.forgot-password'
 import { Route as AtadminDashboardRouteImport } from './routes/@admin.dashboard'
 import { Route as AtadminNewsIndexRouteImport } from './routes/@admin.news.index'
+import { Route as AtadminGalleryIndexRouteImport } from './routes/@admin.gallery.index'
+import { Route as AtadminFacultiesIndexRouteImport } from './routes/@admin.faculties.index'
+import { Route as AtadminEventsIndexRouteImport } from './routes/@admin.events.index'
+import { Route as AtadminDownloadsIndexRouteImport } from './routes/@admin.downloads.index'
+import { Route as AtadminCommitteesIndexRouteImport } from './routes/@admin.committees.index'
 import { Route as AtadminCampusesIndexRouteImport } from './routes/@admin.campuses.index'
+import { Route as AtadminAdmissionLeadsIndexRouteImport } from './routes/@admin.admission-leads.index'
 import { Route as AtadminNewsCreateRouteImport } from './routes/@admin.news.create'
 import { Route as AtadminNewsIdRouteImport } from './routes/@admin.news.$id'
+import { Route as AtadminGalleryCreateRouteImport } from './routes/@admin.gallery.create'
+import { Route as AtadminFacultiesCreateRouteImport } from './routes/@admin.faculties.create'
+import { Route as AtadminFacultiesIdRouteImport } from './routes/@admin.faculties.$id'
+import { Route as AtadminEventsCreateRouteImport } from './routes/@admin.events.create'
+import { Route as AtadminDownloadsCreateRouteImport } from './routes/@admin.downloads.create'
+import { Route as AtadminCommitteesCreateRouteImport } from './routes/@admin.committees.create'
+import { Route as AtadminCommitteesIdRouteImport } from './routes/@admin.committees.$id'
 import { Route as AtadminCampusesCreateRouteImport } from './routes/@admin.campuses.create'
 import { Route as AtadminCampusesIdRouteImport } from './routes/@admin.campuses.$id'
+import { Route as AtadminAdmissionLeadsIdRouteImport } from './routes/@admin.admission-leads.$id'
 import { Route as AtadminNewsIdEditRouteImport } from './routes/@admin.news.$id.edit'
+import { Route as AtadminGalleryIdEditRouteImport } from './routes/@admin.gallery.$id.edit'
+import { Route as AtadminFacultiesIdEditRouteImport } from './routes/@admin.faculties.$id.edit'
+import { Route as AtadminEventsIdEditRouteImport } from './routes/@admin.events.$id.edit'
+import { Route as AtadminDownloadsIdEditRouteImport } from './routes/@admin.downloads.$id.edit'
+import { Route as AtadminCommitteesIdEditRouteImport } from './routes/@admin.committees.$id.edit'
 import { Route as AtadminCampusesIdEditRouteImport } from './routes/@admin.campuses.$id.edit'
 
 const NewsRoute = NewsRouteImport.update({
@@ -131,11 +150,42 @@ const AtadminNewsIndexRoute = AtadminNewsIndexRouteImport.update({
   path: '/news/',
   getParentRoute: () => AtadminRoute,
 } as any)
+const AtadminGalleryIndexRoute = AtadminGalleryIndexRouteImport.update({
+  id: '/gallery/',
+  path: '/gallery/',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminFacultiesIndexRoute = AtadminFacultiesIndexRouteImport.update({
+  id: '/faculties/',
+  path: '/faculties/',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminEventsIndexRoute = AtadminEventsIndexRouteImport.update({
+  id: '/events/',
+  path: '/events/',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminDownloadsIndexRoute = AtadminDownloadsIndexRouteImport.update({
+  id: '/downloads/',
+  path: '/downloads/',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminCommitteesIndexRoute = AtadminCommitteesIndexRouteImport.update({
+  id: '/committees/',
+  path: '/committees/',
+  getParentRoute: () => AtadminRoute,
+} as any)
 const AtadminCampusesIndexRoute = AtadminCampusesIndexRouteImport.update({
   id: '/campuses/',
   path: '/campuses/',
   getParentRoute: () => AtadminRoute,
 } as any)
+const AtadminAdmissionLeadsIndexRoute =
+  AtadminAdmissionLeadsIndexRouteImport.update({
+    id: '/admission-leads/',
+    path: '/admission-leads/',
+    getParentRoute: () => AtadminRoute,
+  } as any)
 const AtadminNewsCreateRoute = AtadminNewsCreateRouteImport.update({
   id: '/news/create',
   path: '/news/create',
@@ -144,6 +194,41 @@ const AtadminNewsCreateRoute = AtadminNewsCreateRouteImport.update({
 const AtadminNewsIdRoute = AtadminNewsIdRouteImport.update({
   id: '/news/$id',
   path: '/news/$id',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminGalleryCreateRoute = AtadminGalleryCreateRouteImport.update({
+  id: '/gallery/create',
+  path: '/gallery/create',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminFacultiesCreateRoute = AtadminFacultiesCreateRouteImport.update({
+  id: '/faculties/create',
+  path: '/faculties/create',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminFacultiesIdRoute = AtadminFacultiesIdRouteImport.update({
+  id: '/faculties/$id',
+  path: '/faculties/$id',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminEventsCreateRoute = AtadminEventsCreateRouteImport.update({
+  id: '/events/create',
+  path: '/events/create',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminDownloadsCreateRoute = AtadminDownloadsCreateRouteImport.update({
+  id: '/downloads/create',
+  path: '/downloads/create',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminCommitteesCreateRoute = AtadminCommitteesCreateRouteImport.update({
+  id: '/committees/create',
+  path: '/committees/create',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminCommitteesIdRoute = AtadminCommitteesIdRouteImport.update({
+  id: '/committees/$id',
+  path: '/committees/$id',
   getParentRoute: () => AtadminRoute,
 } as any)
 const AtadminCampusesCreateRoute = AtadminCampusesCreateRouteImport.update({
@@ -156,10 +241,40 @@ const AtadminCampusesIdRoute = AtadminCampusesIdRouteImport.update({
   path: '/campuses/$id',
   getParentRoute: () => AtadminRoute,
 } as any)
+const AtadminAdmissionLeadsIdRoute = AtadminAdmissionLeadsIdRouteImport.update({
+  id: '/admission-leads/$id',
+  path: '/admission-leads/$id',
+  getParentRoute: () => AtadminRoute,
+} as any)
 const AtadminNewsIdEditRoute = AtadminNewsIdEditRouteImport.update({
   id: '/edit',
   path: '/edit',
   getParentRoute: () => AtadminNewsIdRoute,
+} as any)
+const AtadminGalleryIdEditRoute = AtadminGalleryIdEditRouteImport.update({
+  id: '/gallery/$id/edit',
+  path: '/gallery/$id/edit',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminFacultiesIdEditRoute = AtadminFacultiesIdEditRouteImport.update({
+  id: '/edit',
+  path: '/edit',
+  getParentRoute: () => AtadminFacultiesIdRoute,
+} as any)
+const AtadminEventsIdEditRoute = AtadminEventsIdEditRouteImport.update({
+  id: '/events/$id/edit',
+  path: '/events/$id/edit',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminDownloadsIdEditRoute = AtadminDownloadsIdEditRouteImport.update({
+  id: '/downloads/$id/edit',
+  path: '/downloads/$id/edit',
+  getParentRoute: () => AtadminRoute,
+} as any)
+const AtadminCommitteesIdEditRoute = AtadminCommitteesIdEditRouteImport.update({
+  id: '/edit',
+  path: '/edit',
+  getParentRoute: () => AtadminCommitteesIdRoute,
 } as any)
 const AtadminCampusesIdEditRoute = AtadminCampusesIdEditRouteImport.update({
   id: '/edit',
@@ -186,13 +301,32 @@ export interface FileRoutesByFullPath {
   '/institutions/$slug': typeof InstitutionsSlugRoute
   '/@admin/': typeof AtadminIndexRoute
   '/institutions/': typeof InstitutionsIndexRoute
+  '/@admin/admission-leads/$id': typeof AtadminAdmissionLeadsIdRoute
   '/@admin/campuses/$id': typeof AtadminCampusesIdRouteWithChildren
   '/@admin/campuses/create': typeof AtadminCampusesCreateRoute
+  '/@admin/committees/$id': typeof AtadminCommitteesIdRouteWithChildren
+  '/@admin/committees/create': typeof AtadminCommitteesCreateRoute
+  '/@admin/downloads/create': typeof AtadminDownloadsCreateRoute
+  '/@admin/events/create': typeof AtadminEventsCreateRoute
+  '/@admin/faculties/$id': typeof AtadminFacultiesIdRouteWithChildren
+  '/@admin/faculties/create': typeof AtadminFacultiesCreateRoute
+  '/@admin/gallery/create': typeof AtadminGalleryCreateRoute
   '/@admin/news/$id': typeof AtadminNewsIdRouteWithChildren
   '/@admin/news/create': typeof AtadminNewsCreateRoute
+  '/@admin/admission-leads/': typeof AtadminAdmissionLeadsIndexRoute
   '/@admin/campuses/': typeof AtadminCampusesIndexRoute
+  '/@admin/committees/': typeof AtadminCommitteesIndexRoute
+  '/@admin/downloads/': typeof AtadminDownloadsIndexRoute
+  '/@admin/events/': typeof AtadminEventsIndexRoute
+  '/@admin/faculties/': typeof AtadminFacultiesIndexRoute
+  '/@admin/gallery/': typeof AtadminGalleryIndexRoute
   '/@admin/news/': typeof AtadminNewsIndexRoute
   '/@admin/campuses/$id/edit': typeof AtadminCampusesIdEditRoute
+  '/@admin/committees/$id/edit': typeof AtadminCommitteesIdEditRoute
+  '/@admin/downloads/$id/edit': typeof AtadminDownloadsIdEditRoute
+  '/@admin/events/$id/edit': typeof AtadminEventsIdEditRoute
+  '/@admin/faculties/$id/edit': typeof AtadminFacultiesIdEditRoute
+  '/@admin/gallery/$id/edit': typeof AtadminGalleryIdEditRoute
   '/@admin/news/$id/edit': typeof AtadminNewsIdEditRoute
 }
 export interface FileRoutesByTo {
@@ -213,13 +347,32 @@ export interface FileRoutesByTo {
   '/institutions/$slug': typeof InstitutionsSlugRoute
   '/@admin': typeof AtadminIndexRoute
   '/institutions': typeof InstitutionsIndexRoute
+  '/@admin/admission-leads/$id': typeof AtadminAdmissionLeadsIdRoute
   '/@admin/campuses/$id': typeof AtadminCampusesIdRouteWithChildren
   '/@admin/campuses/create': typeof AtadminCampusesCreateRoute
+  '/@admin/committees/$id': typeof AtadminCommitteesIdRouteWithChildren
+  '/@admin/committees/create': typeof AtadminCommitteesCreateRoute
+  '/@admin/downloads/create': typeof AtadminDownloadsCreateRoute
+  '/@admin/events/create': typeof AtadminEventsCreateRoute
+  '/@admin/faculties/$id': typeof AtadminFacultiesIdRouteWithChildren
+  '/@admin/faculties/create': typeof AtadminFacultiesCreateRoute
+  '/@admin/gallery/create': typeof AtadminGalleryCreateRoute
   '/@admin/news/$id': typeof AtadminNewsIdRouteWithChildren
   '/@admin/news/create': typeof AtadminNewsCreateRoute
+  '/@admin/admission-leads': typeof AtadminAdmissionLeadsIndexRoute
   '/@admin/campuses': typeof AtadminCampusesIndexRoute
+  '/@admin/committees': typeof AtadminCommitteesIndexRoute
+  '/@admin/downloads': typeof AtadminDownloadsIndexRoute
+  '/@admin/events': typeof AtadminEventsIndexRoute
+  '/@admin/faculties': typeof AtadminFacultiesIndexRoute
+  '/@admin/gallery': typeof AtadminGalleryIndexRoute
   '/@admin/news': typeof AtadminNewsIndexRoute
   '/@admin/campuses/$id/edit': typeof AtadminCampusesIdEditRoute
+  '/@admin/committees/$id/edit': typeof AtadminCommitteesIdEditRoute
+  '/@admin/downloads/$id/edit': typeof AtadminDownloadsIdEditRoute
+  '/@admin/events/$id/edit': typeof AtadminEventsIdEditRoute
+  '/@admin/faculties/$id/edit': typeof AtadminFacultiesIdEditRoute
+  '/@admin/gallery/$id/edit': typeof AtadminGalleryIdEditRoute
   '/@admin/news/$id/edit': typeof AtadminNewsIdEditRoute
 }
 export interface FileRoutesById {
@@ -242,13 +395,32 @@ export interface FileRoutesById {
   '/institutions/$slug': typeof InstitutionsSlugRoute
   '/@admin/': typeof AtadminIndexRoute
   '/institutions/': typeof InstitutionsIndexRoute
+  '/@admin/admission-leads/$id': typeof AtadminAdmissionLeadsIdRoute
   '/@admin/campuses/$id': typeof AtadminCampusesIdRouteWithChildren
   '/@admin/campuses/create': typeof AtadminCampusesCreateRoute
+  '/@admin/committees/$id': typeof AtadminCommitteesIdRouteWithChildren
+  '/@admin/committees/create': typeof AtadminCommitteesCreateRoute
+  '/@admin/downloads/create': typeof AtadminDownloadsCreateRoute
+  '/@admin/events/create': typeof AtadminEventsCreateRoute
+  '/@admin/faculties/$id': typeof AtadminFacultiesIdRouteWithChildren
+  '/@admin/faculties/create': typeof AtadminFacultiesCreateRoute
+  '/@admin/gallery/create': typeof AtadminGalleryCreateRoute
   '/@admin/news/$id': typeof AtadminNewsIdRouteWithChildren
   '/@admin/news/create': typeof AtadminNewsCreateRoute
+  '/@admin/admission-leads/': typeof AtadminAdmissionLeadsIndexRoute
   '/@admin/campuses/': typeof AtadminCampusesIndexRoute
+  '/@admin/committees/': typeof AtadminCommitteesIndexRoute
+  '/@admin/downloads/': typeof AtadminDownloadsIndexRoute
+  '/@admin/events/': typeof AtadminEventsIndexRoute
+  '/@admin/faculties/': typeof AtadminFacultiesIndexRoute
+  '/@admin/gallery/': typeof AtadminGalleryIndexRoute
   '/@admin/news/': typeof AtadminNewsIndexRoute
   '/@admin/campuses/$id/edit': typeof AtadminCampusesIdEditRoute
+  '/@admin/committees/$id/edit': typeof AtadminCommitteesIdEditRoute
+  '/@admin/downloads/$id/edit': typeof AtadminDownloadsIdEditRoute
+  '/@admin/events/$id/edit': typeof AtadminEventsIdEditRoute
+  '/@admin/faculties/$id/edit': typeof AtadminFacultiesIdEditRoute
+  '/@admin/gallery/$id/edit': typeof AtadminGalleryIdEditRoute
   '/@admin/news/$id/edit': typeof AtadminNewsIdEditRoute
 }
 export interface FileRouteTypes {
@@ -272,13 +444,32 @@ export interface FileRouteTypes {
     | '/institutions/$slug'
     | '/@admin/'
     | '/institutions/'
+    | '/@admin/admission-leads/$id'
     | '/@admin/campuses/$id'
     | '/@admin/campuses/create'
+    | '/@admin/committees/$id'
+    | '/@admin/committees/create'
+    | '/@admin/downloads/create'
+    | '/@admin/events/create'
+    | '/@admin/faculties/$id'
+    | '/@admin/faculties/create'
+    | '/@admin/gallery/create'
     | '/@admin/news/$id'
     | '/@admin/news/create'
+    | '/@admin/admission-leads/'
     | '/@admin/campuses/'
+    | '/@admin/committees/'
+    | '/@admin/downloads/'
+    | '/@admin/events/'
+    | '/@admin/faculties/'
+    | '/@admin/gallery/'
     | '/@admin/news/'
     | '/@admin/campuses/$id/edit'
+    | '/@admin/committees/$id/edit'
+    | '/@admin/downloads/$id/edit'
+    | '/@admin/events/$id/edit'
+    | '/@admin/faculties/$id/edit'
+    | '/@admin/gallery/$id/edit'
     | '/@admin/news/$id/edit'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -299,13 +490,32 @@ export interface FileRouteTypes {
     | '/institutions/$slug'
     | '/@admin'
     | '/institutions'
+    | '/@admin/admission-leads/$id'
     | '/@admin/campuses/$id'
     | '/@admin/campuses/create'
+    | '/@admin/committees/$id'
+    | '/@admin/committees/create'
+    | '/@admin/downloads/create'
+    | '/@admin/events/create'
+    | '/@admin/faculties/$id'
+    | '/@admin/faculties/create'
+    | '/@admin/gallery/create'
     | '/@admin/news/$id'
     | '/@admin/news/create'
+    | '/@admin/admission-leads'
     | '/@admin/campuses'
+    | '/@admin/committees'
+    | '/@admin/downloads'
+    | '/@admin/events'
+    | '/@admin/faculties'
+    | '/@admin/gallery'
     | '/@admin/news'
     | '/@admin/campuses/$id/edit'
+    | '/@admin/committees/$id/edit'
+    | '/@admin/downloads/$id/edit'
+    | '/@admin/events/$id/edit'
+    | '/@admin/faculties/$id/edit'
+    | '/@admin/gallery/$id/edit'
     | '/@admin/news/$id/edit'
   id:
     | '__root__'
@@ -327,13 +537,32 @@ export interface FileRouteTypes {
     | '/institutions/$slug'
     | '/@admin/'
     | '/institutions/'
+    | '/@admin/admission-leads/$id'
     | '/@admin/campuses/$id'
     | '/@admin/campuses/create'
+    | '/@admin/committees/$id'
+    | '/@admin/committees/create'
+    | '/@admin/downloads/create'
+    | '/@admin/events/create'
+    | '/@admin/faculties/$id'
+    | '/@admin/faculties/create'
+    | '/@admin/gallery/create'
     | '/@admin/news/$id'
     | '/@admin/news/create'
+    | '/@admin/admission-leads/'
     | '/@admin/campuses/'
+    | '/@admin/committees/'
+    | '/@admin/downloads/'
+    | '/@admin/events/'
+    | '/@admin/faculties/'
+    | '/@admin/gallery/'
     | '/@admin/news/'
     | '/@admin/campuses/$id/edit'
+    | '/@admin/committees/$id/edit'
+    | '/@admin/downloads/$id/edit'
+    | '/@admin/events/$id/edit'
+    | '/@admin/faculties/$id/edit'
+    | '/@admin/gallery/$id/edit'
     | '/@admin/news/$id/edit'
   fileRoutesById: FileRoutesById
 }
@@ -489,11 +718,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AtadminNewsIndexRouteImport
       parentRoute: typeof AtadminRoute
     }
+    '/@admin/gallery/': {
+      id: '/@admin/gallery/'
+      path: '/gallery'
+      fullPath: '/@admin/gallery/'
+      preLoaderRoute: typeof AtadminGalleryIndexRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/faculties/': {
+      id: '/@admin/faculties/'
+      path: '/faculties'
+      fullPath: '/@admin/faculties/'
+      preLoaderRoute: typeof AtadminFacultiesIndexRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/events/': {
+      id: '/@admin/events/'
+      path: '/events'
+      fullPath: '/@admin/events/'
+      preLoaderRoute: typeof AtadminEventsIndexRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/downloads/': {
+      id: '/@admin/downloads/'
+      path: '/downloads'
+      fullPath: '/@admin/downloads/'
+      preLoaderRoute: typeof AtadminDownloadsIndexRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/committees/': {
+      id: '/@admin/committees/'
+      path: '/committees'
+      fullPath: '/@admin/committees/'
+      preLoaderRoute: typeof AtadminCommitteesIndexRouteImport
+      parentRoute: typeof AtadminRoute
+    }
     '/@admin/campuses/': {
       id: '/@admin/campuses/'
       path: '/campuses'
       fullPath: '/@admin/campuses/'
       preLoaderRoute: typeof AtadminCampusesIndexRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/admission-leads/': {
+      id: '/@admin/admission-leads/'
+      path: '/admission-leads'
+      fullPath: '/@admin/admission-leads/'
+      preLoaderRoute: typeof AtadminAdmissionLeadsIndexRouteImport
       parentRoute: typeof AtadminRoute
     }
     '/@admin/news/create': {
@@ -510,6 +781,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AtadminNewsIdRouteImport
       parentRoute: typeof AtadminRoute
     }
+    '/@admin/gallery/create': {
+      id: '/@admin/gallery/create'
+      path: '/gallery/create'
+      fullPath: '/@admin/gallery/create'
+      preLoaderRoute: typeof AtadminGalleryCreateRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/faculties/create': {
+      id: '/@admin/faculties/create'
+      path: '/faculties/create'
+      fullPath: '/@admin/faculties/create'
+      preLoaderRoute: typeof AtadminFacultiesCreateRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/faculties/$id': {
+      id: '/@admin/faculties/$id'
+      path: '/faculties/$id'
+      fullPath: '/@admin/faculties/$id'
+      preLoaderRoute: typeof AtadminFacultiesIdRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/events/create': {
+      id: '/@admin/events/create'
+      path: '/events/create'
+      fullPath: '/@admin/events/create'
+      preLoaderRoute: typeof AtadminEventsCreateRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/downloads/create': {
+      id: '/@admin/downloads/create'
+      path: '/downloads/create'
+      fullPath: '/@admin/downloads/create'
+      preLoaderRoute: typeof AtadminDownloadsCreateRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/committees/create': {
+      id: '/@admin/committees/create'
+      path: '/committees/create'
+      fullPath: '/@admin/committees/create'
+      preLoaderRoute: typeof AtadminCommitteesCreateRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/committees/$id': {
+      id: '/@admin/committees/$id'
+      path: '/committees/$id'
+      fullPath: '/@admin/committees/$id'
+      preLoaderRoute: typeof AtadminCommitteesIdRouteImport
+      parentRoute: typeof AtadminRoute
+    }
     '/@admin/campuses/create': {
       id: '/@admin/campuses/create'
       path: '/campuses/create'
@@ -524,12 +844,54 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AtadminCampusesIdRouteImport
       parentRoute: typeof AtadminRoute
     }
+    '/@admin/admission-leads/$id': {
+      id: '/@admin/admission-leads/$id'
+      path: '/admission-leads/$id'
+      fullPath: '/@admin/admission-leads/$id'
+      preLoaderRoute: typeof AtadminAdmissionLeadsIdRouteImport
+      parentRoute: typeof AtadminRoute
+    }
     '/@admin/news/$id/edit': {
       id: '/@admin/news/$id/edit'
       path: '/edit'
       fullPath: '/@admin/news/$id/edit'
       preLoaderRoute: typeof AtadminNewsIdEditRouteImport
       parentRoute: typeof AtadminNewsIdRoute
+    }
+    '/@admin/gallery/$id/edit': {
+      id: '/@admin/gallery/$id/edit'
+      path: '/gallery/$id/edit'
+      fullPath: '/@admin/gallery/$id/edit'
+      preLoaderRoute: typeof AtadminGalleryIdEditRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/faculties/$id/edit': {
+      id: '/@admin/faculties/$id/edit'
+      path: '/edit'
+      fullPath: '/@admin/faculties/$id/edit'
+      preLoaderRoute: typeof AtadminFacultiesIdEditRouteImport
+      parentRoute: typeof AtadminFacultiesIdRoute
+    }
+    '/@admin/events/$id/edit': {
+      id: '/@admin/events/$id/edit'
+      path: '/events/$id/edit'
+      fullPath: '/@admin/events/$id/edit'
+      preLoaderRoute: typeof AtadminEventsIdEditRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/downloads/$id/edit': {
+      id: '/@admin/downloads/$id/edit'
+      path: '/downloads/$id/edit'
+      fullPath: '/@admin/downloads/$id/edit'
+      preLoaderRoute: typeof AtadminDownloadsIdEditRouteImport
+      parentRoute: typeof AtadminRoute
+    }
+    '/@admin/committees/$id/edit': {
+      id: '/@admin/committees/$id/edit'
+      path: '/edit'
+      fullPath: '/@admin/committees/$id/edit'
+      preLoaderRoute: typeof AtadminCommitteesIdEditRouteImport
+      parentRoute: typeof AtadminCommitteesIdRoute
     }
     '/@admin/campuses/$id/edit': {
       id: '/@admin/campuses/$id/edit'
@@ -552,6 +914,28 @@ const AtadminCampusesIdRouteChildren: AtadminCampusesIdRouteChildren = {
 const AtadminCampusesIdRouteWithChildren =
   AtadminCampusesIdRoute._addFileChildren(AtadminCampusesIdRouteChildren)
 
+interface AtadminCommitteesIdRouteChildren {
+  AtadminCommitteesIdEditRoute: typeof AtadminCommitteesIdEditRoute
+}
+
+const AtadminCommitteesIdRouteChildren: AtadminCommitteesIdRouteChildren = {
+  AtadminCommitteesIdEditRoute: AtadminCommitteesIdEditRoute,
+}
+
+const AtadminCommitteesIdRouteWithChildren =
+  AtadminCommitteesIdRoute._addFileChildren(AtadminCommitteesIdRouteChildren)
+
+interface AtadminFacultiesIdRouteChildren {
+  AtadminFacultiesIdEditRoute: typeof AtadminFacultiesIdEditRoute
+}
+
+const AtadminFacultiesIdRouteChildren: AtadminFacultiesIdRouteChildren = {
+  AtadminFacultiesIdEditRoute: AtadminFacultiesIdEditRoute,
+}
+
+const AtadminFacultiesIdRouteWithChildren =
+  AtadminFacultiesIdRoute._addFileChildren(AtadminFacultiesIdRouteChildren)
+
 interface AtadminNewsIdRouteChildren {
   AtadminNewsIdEditRoute: typeof AtadminNewsIdEditRoute
 }
@@ -569,12 +953,29 @@ interface AtadminRouteChildren {
   AtadminForgotPasswordRoute: typeof AtadminForgotPasswordRoute
   AtadminProfileRoute: typeof AtadminProfileRoute
   AtadminIndexRoute: typeof AtadminIndexRoute
+  AtadminAdmissionLeadsIdRoute: typeof AtadminAdmissionLeadsIdRoute
   AtadminCampusesIdRoute: typeof AtadminCampusesIdRouteWithChildren
   AtadminCampusesCreateRoute: typeof AtadminCampusesCreateRoute
+  AtadminCommitteesIdRoute: typeof AtadminCommitteesIdRouteWithChildren
+  AtadminCommitteesCreateRoute: typeof AtadminCommitteesCreateRoute
+  AtadminDownloadsCreateRoute: typeof AtadminDownloadsCreateRoute
+  AtadminEventsCreateRoute: typeof AtadminEventsCreateRoute
+  AtadminFacultiesIdRoute: typeof AtadminFacultiesIdRouteWithChildren
+  AtadminFacultiesCreateRoute: typeof AtadminFacultiesCreateRoute
+  AtadminGalleryCreateRoute: typeof AtadminGalleryCreateRoute
   AtadminNewsIdRoute: typeof AtadminNewsIdRouteWithChildren
   AtadminNewsCreateRoute: typeof AtadminNewsCreateRoute
+  AtadminAdmissionLeadsIndexRoute: typeof AtadminAdmissionLeadsIndexRoute
   AtadminCampusesIndexRoute: typeof AtadminCampusesIndexRoute
+  AtadminCommitteesIndexRoute: typeof AtadminCommitteesIndexRoute
+  AtadminDownloadsIndexRoute: typeof AtadminDownloadsIndexRoute
+  AtadminEventsIndexRoute: typeof AtadminEventsIndexRoute
+  AtadminFacultiesIndexRoute: typeof AtadminFacultiesIndexRoute
+  AtadminGalleryIndexRoute: typeof AtadminGalleryIndexRoute
   AtadminNewsIndexRoute: typeof AtadminNewsIndexRoute
+  AtadminDownloadsIdEditRoute: typeof AtadminDownloadsIdEditRoute
+  AtadminEventsIdEditRoute: typeof AtadminEventsIdEditRoute
+  AtadminGalleryIdEditRoute: typeof AtadminGalleryIdEditRoute
 }
 
 const AtadminRouteChildren: AtadminRouteChildren = {
@@ -582,12 +983,29 @@ const AtadminRouteChildren: AtadminRouteChildren = {
   AtadminForgotPasswordRoute: AtadminForgotPasswordRoute,
   AtadminProfileRoute: AtadminProfileRoute,
   AtadminIndexRoute: AtadminIndexRoute,
+  AtadminAdmissionLeadsIdRoute: AtadminAdmissionLeadsIdRoute,
   AtadminCampusesIdRoute: AtadminCampusesIdRouteWithChildren,
   AtadminCampusesCreateRoute: AtadminCampusesCreateRoute,
+  AtadminCommitteesIdRoute: AtadminCommitteesIdRouteWithChildren,
+  AtadminCommitteesCreateRoute: AtadminCommitteesCreateRoute,
+  AtadminDownloadsCreateRoute: AtadminDownloadsCreateRoute,
+  AtadminEventsCreateRoute: AtadminEventsCreateRoute,
+  AtadminFacultiesIdRoute: AtadminFacultiesIdRouteWithChildren,
+  AtadminFacultiesCreateRoute: AtadminFacultiesCreateRoute,
+  AtadminGalleryCreateRoute: AtadminGalleryCreateRoute,
   AtadminNewsIdRoute: AtadminNewsIdRouteWithChildren,
   AtadminNewsCreateRoute: AtadminNewsCreateRoute,
+  AtadminAdmissionLeadsIndexRoute: AtadminAdmissionLeadsIndexRoute,
   AtadminCampusesIndexRoute: AtadminCampusesIndexRoute,
+  AtadminCommitteesIndexRoute: AtadminCommitteesIndexRoute,
+  AtadminDownloadsIndexRoute: AtadminDownloadsIndexRoute,
+  AtadminEventsIndexRoute: AtadminEventsIndexRoute,
+  AtadminFacultiesIndexRoute: AtadminFacultiesIndexRoute,
+  AtadminGalleryIndexRoute: AtadminGalleryIndexRoute,
   AtadminNewsIndexRoute: AtadminNewsIndexRoute,
+  AtadminDownloadsIdEditRoute: AtadminDownloadsIdEditRoute,
+  AtadminEventsIdEditRoute: AtadminEventsIdEditRoute,
+  AtadminGalleryIdEditRoute: AtadminGalleryIdEditRoute,
 }
 
 const AtadminRouteWithChildren =

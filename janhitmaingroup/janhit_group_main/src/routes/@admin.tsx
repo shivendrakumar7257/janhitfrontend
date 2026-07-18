@@ -10,7 +10,12 @@ import {
   LayoutDashboard,
   Menu,
   X,
-  Newspaper
+  Newspaper,
+  FileText,
+  Layers,
+  FileDown,
+  Image,
+  Calendar
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -82,10 +87,46 @@ function AdminLayoutContent() {
       active: location.pathname.startsWith("/@admin/campuses"),
     },
     {
+      label: "Faculty Management",
+      icon: GraduationCap,
+      to: "/@admin/faculties" as const,
+      active: location.pathname.startsWith("/@admin/faculties"),
+    },
+    {
+      label: "Committee Management",
+      icon: Layers,
+      to: "/@admin/committees" as const,
+      active: location.pathname.startsWith("/@admin/committees"),
+    },
+    {
+      label: "Admission Leads",
+      icon: FileText,
+      to: "/@admin/admission-leads" as const,
+      active: location.pathname.startsWith("/@admin/admission-leads"),
+    },
+    {
       label: "News & Notices",
       icon: Newspaper,
       to: "/@admin/news" as const,
       active: location.pathname.startsWith("/@admin/news"),
+    },
+    {
+      label: "Download Management",
+      icon: FileDown,
+      to: "/@admin/downloads" as const,
+      active: location.pathname.startsWith("/@admin/downloads"),
+    },
+    {
+      label: "Gallery Management",
+      icon: Image,
+      to: "/@admin/gallery" as const,
+      active: location.pathname.startsWith("/@admin/gallery"),
+    },
+    {
+      label: "Event Management",
+      icon: Calendar,
+      to: "/@admin/events" as const,
+      active: location.pathname.startsWith("/@admin/events"),
     },
     {
       label: "My Profile",

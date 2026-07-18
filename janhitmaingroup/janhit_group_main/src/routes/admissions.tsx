@@ -14,6 +14,8 @@ import {
 } from "lucide-react";
 import { institutions } from "@/data/institutions";
 import { useState } from "react";
+import { getStoredCampuses } from "@/data/campuses";
+import { createAdmissionLead } from "@/data/admissionLeads";
 
 export const Route = createFileRoute("/admissions")({
   head: () => ({
@@ -35,6 +37,44 @@ function Admissions() {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") as string;
+    const phone = formData.get("phone") as string;
+    const email = formData.get("email") as string;
+    const course = formData.get("course") as string;
+    const campusSlug = formData.get("campus") as string;
+    const city = formData.get("city") as string;
+    const message = formData.get("message") as string;
+
+    // Find campus ID from campusSlug
+    const campuses = getStoredCampuses();
+    let campusId = "1"; // Default fallback
+    const matchedCampus = campuses.find(
+      (c) => c.slug === campusSlug || c.slug.includes(campusSlug) || campusSlug.includes(c.slug)
+    );
+    if (matchedCampus) {
+      campusId = matchedCampus.id;
+    } else {
+      const matchedByName = campuses.find((c) => 
+        c.name.toLowerCase().includes(campusSlug.toLowerCase()) || 
+        c.shortName.toLowerCase().includes(campusSlug.toLowerCase())
+      );
+      if (matchedByName) {
+        campusId = matchedByName.id;
+      }
+    }
+
+    // Call database create
+    createAdmissionLead({
+      name: name || "",
+      email: email || "",
+      mobile: phone || "",
+      course: course || "",
+      campusId,
+      city: city || "",
+      message: message || ""
+    });
+
     setSent(true);
     setTimeout(() => setSent(false), 4000);
     (e.currentTarget as HTMLFormElement).reset();
@@ -370,7 +410,7 @@ function Admissions() {
                   <label className="block text-xs uppercase tracking-wider font-semibold text-muted-foreground mb-1.5">
                     Course
                   </label>
-                  <select required className="w-full px-4 py-3 rounded-xl border border-border bg-background text-sm">
+                  <select name="course" required className="w-full px-4 py-3 rounded-xl border border-border bg-background text-sm">
                     <option value="">Select a course</option>
                     {[
                       "LL.B",
@@ -395,10 +435,10 @@ function Admissions() {
                   <label className="block text-xs uppercase tracking-wider font-semibold text-muted-foreground mb-1.5">
                     Campus
                   </label>
-                  <select required className="w-full px-4 py-3 rounded-xl border border-border bg-background text-sm">
+                  <select name="campus" required className="w-full px-4 py-3 rounded-xl border border-border bg-background text-sm">
                     <option value="">Select a campus</option>
                     {institutions.map((i) => (
-                      <option key={i.slug}>
+                      <option key={i.slug} value={i.slug}>
                         {i.name} — {i.city}
                       </option>
                     ))}
@@ -410,6 +450,7 @@ function Admissions() {
                     Message
                   </label>
                   <textarea
+                    name="message"
                     rows={4}
                     className="w-full px-4 py-3 rounded-xl border border-border bg-background text-sm"
                   />

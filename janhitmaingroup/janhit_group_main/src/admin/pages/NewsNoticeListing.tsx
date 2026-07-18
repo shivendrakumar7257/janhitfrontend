@@ -447,14 +447,14 @@ export const NewsNoticeListing: React.FC = () => {
               <Table className="w-full min-w-[700px] border-collapse">
                 <TableHeader className="bg-muted/40">
                   <TableRow>
-                    <TableHead className="w-[60px] pl-5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground py-3.5">Post</TableHead>
-                    <TableHead className="min-w-[220px] text-[10px] font-bold uppercase tracking-wider text-muted-foreground py-3.5">Details</TableHead>
-                    <TableHead className="w-[80px] text-[10px] font-bold uppercase tracking-wider text-muted-foreground py-3.5">Type</TableHead>
-                    <TableHead className="w-[100px] text-[10px] font-bold uppercase tracking-wider text-muted-foreground py-3.5">Visibility</TableHead>
-                    <TableHead className="w-[130px] text-[10px] font-bold uppercase tracking-wider text-muted-foreground py-3.5">Mapped Campus</TableHead>
-                    <TableHead className="w-[90px] text-[10px] font-bold uppercase tracking-wider text-muted-foreground py-3.5">Status</TableHead>
-                    <TableHead className="w-[100px] text-[10px] font-bold uppercase tracking-wider text-muted-foreground py-3.5">Publish Date</TableHead>
-                    <TableHead className="pr-5 text-right text-[10px] font-bold uppercase tracking-wider text-muted-foreground py-3.5">Actions</TableHead>
+                    <TableHead className="w-[60px] pl-5 text-xs font-bold uppercase tracking-wider text-muted-foreground py-3.5">Post</TableHead>
+                    <TableHead className="min-w-[220px] text-xs font-bold uppercase tracking-wider text-muted-foreground py-3.5">Details</TableHead>
+                    <TableHead className="w-[80px] text-xs font-bold uppercase tracking-wider text-muted-foreground py-3.5">Type</TableHead>
+                    <TableHead className="w-[100px] text-xs font-bold uppercase tracking-wider text-muted-foreground py-3.5">Visibility</TableHead>
+                    <TableHead className="w-[130px] text-xs font-bold uppercase tracking-wider text-muted-foreground py-3.5">Mapped Campus</TableHead>
+                    <TableHead className="w-[90px] text-xs font-bold uppercase tracking-wider text-muted-foreground py-3.5">Status</TableHead>
+                    <TableHead className="w-[100px] text-xs font-bold uppercase tracking-wider text-muted-foreground py-3.5">Publish Date</TableHead>
+                    <TableHead className="pr-5 text-right text-xs font-bold uppercase tracking-wider text-muted-foreground py-3.5">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>

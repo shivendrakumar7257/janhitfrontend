@@ -231,7 +231,7 @@ export const NewsNoticeForm: React.FC<NewsNoticeFormProps> = ({
     const hasErrors = Object.values(newErrors).some((err) => err !== "");
     if (hasErrors) {
       // Scroll to first error
-      const firstErrorField = Object.keys(newErrors).find((key) => newErrors[key] !== "");
+      const firstErrorField = Object.keys(newErrors).find((key) => newErrors[key as keyof typeof newErrors] !== "");
       if (firstErrorField) {
         const element = document.getElementById(firstErrorField);
         if (element) {
