@@ -5,7 +5,7 @@ import { SectionHeader } from "./SectionHeader";
 
 const faqs = [
   { q: "What is the admission process?", a: "Inquiry → Campus Experience → Student Interaction → Principal Interaction → Enrollment. Each step is personal and unhurried." },
-  { q: "What is the fee structure?", a: "Detailed fee structure is shared during the campus visit. Founder's batch families enjoy fee waivers and tuition advantages." },
+  { q: "What is the fee structure?", a: "Our detailed fee structure and refund policy are available on the Admissions page under the Fee Structure section. Founder's batch families enjoy a 100% admission fee waiver." },
   { q: "Which curriculum is followed?", a: "An internationally benchmarked curriculum aligned with the CBSE framework, enriched by STEM, arts, and life-skills programmes." },
   { q: "Is transportation available?", a: "Yes — GPS-tracked, attendant-supervised buses cover key residential pockets of Greater Noida." },
   { q: "What safety measures are in place?", a: "24x7 CCTV, biometric access, trained staff, a fully-equipped infirmary and strict visitor protocols." },
@@ -13,7 +13,7 @@ const faqs = [
 ];
 
 export function Faq() {
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(null);
   return (
     <section className="relative py-28 md:py-36 bg-beige">
       <div className="max-w-4xl mx-auto px-6">
